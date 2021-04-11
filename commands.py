@@ -1,5 +1,5 @@
-import searcher_algory
-import translating
+from searcher import searcher_algory
+from translator import translating
 
 from telegram import Update
 from telegram.ext import CallbackContext
@@ -10,6 +10,7 @@ def menu(update:Update,context:CallbackContext):
 	update.message.reply_text(f'Main menu:\n\
 		/trans -> translate texts\n\
 		/search-> search in google\n\
+		/trnasearch-> trans and search in google\n\
 		\n')
 
 def text_to_translate(update:Update,context:CallbackContext):
@@ -34,6 +35,21 @@ def show_results(update:Update,context:CallbackContext):
 	pages = searcher_algory.searching(mystring)
 
 	update.message.reply_text(f'Results for:"{mystring}"\n')
+	for j in pages:	
+		update.message.reply_text(f'{j}')
+
+def search_foreignly(update:Update,context:CallbackContext):
+	mylist = []
+	mylist = context.args
+	mystring = ""
+
+	for u in mylist:
+		mystring = mystring + "" + i
+	translated_text = translating.trans(mystring)	
+	update.message.reply_text(f'Translated text: {translated_text}')
+
+	pages = searcher_algory.searching(translated_text)
+	update.message.reply_text(f'Results for:"{translated_text}"\n')
 	for j in pages:	
 		update.message.reply_text(f'{j}')
 
