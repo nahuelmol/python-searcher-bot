@@ -1,4 +1,4 @@
-from searcher import searcher_algory
+from searcher.searcher_algory import searching
 from translator import translating
 
 from telegram import Update

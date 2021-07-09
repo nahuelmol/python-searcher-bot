@@ -1,6 +1,6 @@
 from googlesearch import search
 import requests, sys
-import shorter
+from . import shorter
 
 def searching(mystring):
 	pages_scoped = 10
@@ -16,4 +16,5 @@ def searching(mystring):
 		print(link_cutered)
 		pages.append(i)
 	return pages
+
 
