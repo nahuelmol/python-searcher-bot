@@ -1,5 +1,6 @@
 import os
 import searcher, commands
+import interface.starter
 
 from telegram.ext import Updater, CommandHandler
 from dotenv import load_dotenv
